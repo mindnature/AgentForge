@@ -1,0 +1,34 @@
+{
+  "scores": {
+    "need": {
+      "frequency": 4,
+      "time_cost": 4,
+      "error_cost": 4,
+      "friction": 4,
+      "repeatability": 5
+    },
+    "ai_fit": {
+      "model_capability": 5,
+      "input_access": 5,
+      "output_verifiability": 4,
+      "toolability": 5,
+      "autonomy_safety": 4
+    },
+    "verification": 4,
+    "unacceptable_irreversible_risk": false,
+    "no_real_user_or_trigger": false
+  },
+  "outcome_definition": "当科研管理人员收到新的项目申报通知时，系统读取通知和附件，提取关键申报信息并生成可直接校内审核的通知初稿与任务清单。",
+  "current_workflow": [
+    {"name": "下载通知和附件", "action": "keep", "reason": "输入获取仍需要可靠来源"},
+    {"name": "逐份阅读并手工摘录", "action": "merge", "reason": "可以在完整上下文中一次结构化抽取", "replacement": "文件读取 + 结构化抽取"},
+    {"name": "手工登记截止时间", "action": "merge", "reason": "并入结构化字段并由规则校验"},
+    {"name": "撰写校内通知", "action": "parallelize", "reason": "在关键信息稳定后可与任务清单同时生成"},
+    {"name": "最终发布", "action": "human_gate", "reason": "正式外部发布保留人工批准"}
+  ],
+  "components": [
+    {"name": "日期字段校验", "kind": "tool", "deterministic": true, "fixed_path": true},
+    {"name": "信息抽取与通知生成", "kind": "workflow", "deterministic": false, "fixed_path": true},
+    {"name": "异常与矛盾处理", "kind": "agent", "deterministic": false, "fixed_path": false}
+  ]
+}
