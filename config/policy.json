@@ -1,0 +1,49 @@
+{
+  "version": "0.1.0",
+  "scales": {
+    "min": 0,
+    "max": 5
+  },
+  "need_weights": {
+    "frequency": 0.25,
+    "time_cost": 0.20,
+    "error_cost": 0.20,
+    "friction": 0.15,
+    "repeatability": 0.20
+  },
+  "ai_fit_weights": {
+    "model_capability": 0.25,
+    "input_access": 0.15,
+    "output_verifiability": 0.25,
+    "toolability": 0.15,
+    "autonomy_safety": 0.20
+  },
+  "thresholds": {
+    "A": {"need": 70, "ai_fit": 70, "verification": 60},
+    "B": {"need": 60, "ai_fit": 55, "verification": 45},
+    "C": {"need": 45, "ai_fit": 35, "verification": 25}
+  },
+  "hard_stops": {
+    "unacceptable_irreversible_risk": true,
+    "no_real_user_or_trigger": true
+  },
+  "question_policy": {
+    "max_questions_per_turn": 3,
+    "ask_only_if_decision_relevant": true,
+    "prefer_inference_from_existing_context": true
+  },
+  "architecture_priority": [
+    "deterministic_program",
+    "tool",
+    "skill",
+    "workflow",
+    "agent",
+    "human_gate"
+  ],
+  "red_team_questions": [
+    "如果完全不用 AI，有没有更便宜、更稳定的解决办法？",
+    "如果只用一个 Prompt，是否已经能解决 80% 的问题？",
+    "如果固定 Workflow 足够，为什么还需要 Agent？",
+    "半年后模型能力提升，这套架构会不会大面积报废？"
+  ]
+}
