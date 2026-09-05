@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentForge Stateful Session",
+  "type": "object",
+  "required": ["schema_version", "session_id", "idea", "stage", "status", "facts", "artifacts", "history"],
+  "properties": {
+    "schema_version": {"const": "0.2"},
+    "session_id": {"type": "string"},
+    "idea": {"type": "string", "minLength": 1},
+    "stage": {"enum": ["DISCOVERY", "ASSESSMENT", "OUTCOME", "REDESIGN", "ARCHITECTURE", "VALIDATION", "MVP", "SPEC", "BUILD"]},
+    "status": {"type": "string"},
+    "facts": {"type": "object"},
+    "artifacts": {"type": "object"},
+    "history": {"type": "array"}
+  }
+}

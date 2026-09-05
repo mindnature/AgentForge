@@ -1,0 +1,7 @@
+{
+  "checks": [
+    {"level": "L4", "name": "申报截止时间核验", "object": "deadline", "method": "回到原始通知定位截止日期原句并比对结构化字段", "pass_condition": "结构化日期与原文完全一致", "failure_action": "block", "max_retries": 1},
+    {"level": "L2", "name": "必需附件检查", "object": "attachments", "method": "按通知附件清单逐项比对实际文件列表", "pass_condition": "所有必需附件均已读取", "failure_action": "repair", "max_retries": 1},
+    {"level": "L5", "name": "是否组织申报", "object": "go_no_go", "method": "提交证据摘要给科研管理人员判断", "pass_condition": "获得人工决定", "failure_action": "human_gate", "max_retries": 0}
+  ]
+}
