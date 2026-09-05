@@ -1,0 +1,7 @@
+{
+  "prompt_only_coverage": 55,
+  "workflow_coverage": 95,
+  "agent_added_value": 15,
+  "upgrade_fragility": 45,
+  "no_ai_solution_preferred": false
+}

@@ -8,14 +8,8 @@
       "type": "object",
       "required": ["need", "ai_fit", "verification"],
       "properties": {
-        "need": {
-          "type": "object",
-          "required": ["frequency", "time_cost", "error_cost", "friction", "repeatability"]
-        },
-        "ai_fit": {
-          "type": "object",
-          "required": ["model_capability", "input_access", "output_verifiability", "toolability", "autonomy_safety"]
-        },
+        "need": {"type": "object", "required": ["frequency", "time_cost", "error_cost", "friction", "repeatability"]},
+        "ai_fit": {"type": "object", "required": ["model_capability", "input_access", "output_verifiability", "toolability", "autonomy_safety"]},
         "verification": {"type": "number", "minimum": 0, "maximum": 5},
         "unacceptable_irreversible_risk": {"type": "boolean"},
         "no_real_user_or_trigger": {"type": "boolean"}
@@ -23,6 +17,7 @@
     },
     "outcome_definition": {"type": ["string", "null"]},
     "current_workflow": {"type": "array"},
-    "components": {"type": "array"}
+    "components": {"type": "array"},
+    "red_team": {"type": ["object", "null"]}
   }
 }

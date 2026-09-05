@@ -1,9 +1,6 @@
 {
-  "version": "0.1.0",
-  "scales": {
-    "min": 0,
-    "max": 5
-  },
+  "version": "0.2.0",
+  "scales": {"min": 0, "max": 5},
   "need_weights": {
     "frequency": 0.25,
     "time_cost": 0.20,
@@ -30,8 +27,21 @@
   "question_policy": {
     "max_questions_per_turn": 3,
     "ask_only_if_decision_relevant": true,
-    "prefer_inference_from_existing_context": true
+    "prefer_inference_from_existing_context": true,
+    "do_not_ask_user_for_json": true,
+    "auto_advance_when_stage_ready": true
   },
+  "stage_order": [
+    "DISCOVERY",
+    "ASSESSMENT",
+    "OUTCOME",
+    "REDESIGN",
+    "ARCHITECTURE",
+    "VALIDATION",
+    "MVP",
+    "SPEC",
+    "BUILD"
+  ],
   "architecture_priority": [
     "deterministic_program",
     "tool",
@@ -40,6 +50,12 @@
     "agent",
     "human_gate"
   ],
+  "red_team_gate": {
+    "prompt_coverage_block": 80,
+    "workflow_coverage_block": 90,
+    "max_agent_delta_when_simpler_solution_exists": 25,
+    "upgrade_fragility_warning": 75
+  },
   "red_team_questions": [
     "如果完全不用 AI，有没有更便宜、更稳定的解决办法？",
     "如果只用一个 Prompt，是否已经能解决 80% 的问题？",
